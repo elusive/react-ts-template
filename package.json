@@ -1,0 +1,92 @@
+{
+  "name": "react-ts-template",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "test:coverage": "react-scripts test --watchAll --coverage",
+    "test:ci": "cross-env CI=true react-scripts test --coverage",
+    "lint": "eslint src --max-warnings=0",
+    "lint:fix": "npm run lint -- --fix",
+    "generate": "npm run plop --plopfile .generators/plopfile.js",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
+  },
+  "dependencies": {
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-router-dom": "^5.1.5",
+    "axios": "^0.21.1",
+    "bootstrap": "^4.5.0",
+    "history": "^5.0.0",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.1",
+    "react-dom": "^16.13.1",
+    "react-query": "^1.5.3",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "typescript": "~3.7.2",
+    "web-vitals": "^0.2.4"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^6.0.21",
+    "@storybook/react": "^6.0.21",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "cross-env": "^7.0.2",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "http-proxy-middleware": "^1.0.4",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.7",
+    "plop": "^2.7.4",
+    "prettier": "^2.0.5",
+    "stylelint": "^13.5.0",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-prettier": "^1.1.2"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:prettier/recommended"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/**/*.stories.tsx",
+      "!src/serviceWorker.ts",
+      "!src/reportWebVitals.ts",
+      "!src/setupTests.ts",
+      "!src/setupProxy.js",
+      "!src/index.tsx"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
